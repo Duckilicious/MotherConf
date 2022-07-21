@@ -1,0 +1,135 @@
+# Terminal stuff
+set default-terminal "screen-256color"
+set escape-time 0
+
+# Enable mouse
+set -g mouse on
+set -g focus-events on
+
+# Window index starts from 1
+set -g base-index 1
+# Automatically renumber windows based on their position
+set -g renumber-windows
+
+# Change tmux prefix to C-z instead of C-b
+set -g prefix C-z
+unbind C-b
+bind C-z send-prefix
+
+# Use vi mode
+setw -g mode-keys vi
+bind -T copy-mode-vi v send-keys -X begin-selection
+# But for status, use emacs mode
+set -g status-keys emacs
+
+# Set clipboard copy
+# reattach-to-user-namespace clipboard copy (macOS)
+# bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+# xclip clipboard copy (Ubuntu)
+ bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
+
+# Set the current working directory based on the current pane's current
+# working directory (if set; if not, use the pane's starting directory)
+# when creating # new windows and splits.
+bind c new-window -c '#{pane_current_path}'
+bind '"' split-window -c '#{pane_current_path}'
+bind % split-window -h -c '#{pane_current_path}'
+
+# Don't allow to execute multiple tmux commands without prefix
+set -g repeat-time 0
+
+# Shortcut to type in all panes in parallel
+bind-key a set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
+
+# Move windows in status bar
+bind-key -n C-S-Left swap-window -d -t -1
+bind-key -n C-S-Right swap-window -d -t +1
+
+# Refresh environment variables when attaching session
+set -g update-environment "DISPLAY XAUTHORITY SSH_AUTH_SOCK"
+
+# reload tmux conf
+bind-key -n F9 source-file ~/.tmux.conf \; display 'Reloaded tmux conf'
+
+# Bind key to load remote tmux.conf
+bind C-r source-file ~/.tmux.remote.conf \; display 'Remote tmux.conf'
+# Unbind C-l as it's used by remote tmux.conf to load back local tmux.conf
+unbind C-l
+
+#### Optional settings ####
+
+# Sets the max number of lines held in window history (Default: 2000)
+# Note: Enlarging this value result in consuming more memory per tmux window.
+# set -g history-limit 2000
+
+#### Byobu shortcuts ####
+
+bind-key -n F2 new-window -c '#{pane_current_path}' \; rename-window "-"
+bind-key -n C-F2 display-panes \; split-window -h
+bind-key -n S-F2 display-panes \; split-window -v
+bind-key -n C-S-F2 new-session
+bind-key -n F3 previous-window
+bind-key -n F4 next-window
+bind-key -n M-Left previous-window
+bind-key -n M-Right next-window
+bind-key -n M-Up switch-client -p
+bind-key -n M-Down switch-client -n
+bind-key -n M-m previous-window
+bind-key -n M-, next-window
+bind-key -n S-F3 display-panes \; select-pane -t :.-
+bind-key -n S-F4 display-panes \; select-pane -t :.+
+#bind-key -n S-Up display-panes \; select-pane -U
+#bind-key -n S-Down display-panes \; select-pane -D
+#bind-key -n S-Left display-panes \; select-pane -L
+#bind-key -n S-Right display-panes \; select-pane -R
+
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n S-Up if-shell "$is_vim" "send-keys S-Up" "select-pane -U"
+bind-key -n S-Down if-shell "$is_vim" "send-keys S-Down" "select-pane -D"
+bind-key -n S-Left if-shell "$is_vim" "send-keys S-Left" "select-pane -L"
+bind-key -n S-Right if-shell "$is_vim" "send-keys S-Right" "select-pane -R"
+bind-key k if-shell "$is_vim" "send-keys S-Up" "select-pane -U"
+bind-key j if-shell "$is_vim" "send-keys S-Down" "select-pane -D"
+bind-key h if-shell "$is_vim" "send-keys S-Left" "select-pane -L"
+bind-key l if-shell "$is_vim" "send-keys S-Right" "select-pane -R"
+
+bind-key -n C-F3 display-panes \; swap-pane -s :. -t :.- \; select-pane -t :.-
+bind-key -n C-F4 display-panes \; swap-pane -s :. -t :.+ \; select-pane -t :.+
+bind-key -n C-S-F3 swap-window -d -t :-1
+bind-key -n C-S-F4 swap-window -d -t :+1
+bind-key -n M-k resize-pane -U
+bind-key -n M-j resize-pane -D
+bind-key -n M-h resize-pane -L
+bind-key -n M-l resize-pane -R
+bind-key -n M-= select-layout even-horizontal
+bind-key -n M-+ select-layout even-vertical
+bind-key -n F6 detach
+bind-key -n S-F6 kill-pane
+bind-key -n F7 copy-mode
+bind-key -n F8 command-prompt -p "(rename-window) " "rename-window '%%'"
+bind-key -n C-F8 command-prompt -p "(rename-session) " "rename-session '%%'"
+
+#### Design changes ####
+
+# Status bar
+set -g status-position bottom
+set -g status-bg colour234
+set -g status-fg '#E95420'
+set -g status-right '#h #[fg=#E2E0DD,bg=#772953,bold] %a %d/%m/%Y#[fg=#E2E0DD,bg=#772953,bold] %H:%M:%S '
+set -g status-right-length 50
+set -g status-left-length 20
+setw -g window-status-current-style fg='#E2E0DD',bold,bg='#772953'
+setw -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour75]#F '
+setw -g window-status-style fg='#EB6536',bg=colour235,none
+setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
+setw -g window-status-bell-style bold,fg=colour255,bg=colour1
+set -g status-interval 1
+
+# Message style
+set -g message-style bg='#772953',fg='#E2E0DD'
+
+# Pane borders
+set -g pane-border-style fg='#AEA79F'
+set -g pane-active-border-style fg='#E95420'
