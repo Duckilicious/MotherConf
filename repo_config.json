@@ -17,15 +17,6 @@
           "path": "/home/gelbard/my_configs/repo_config.json"
         }
       ]
-    },
-    {
-      "path_in_repo": "tags",
-      "platforms": [
-        {
-          "name": "Ubuntu",
-          "path": "/home/gelbard/projects/sggit/tags"
-        }
-      ]
     }
   ]
 }
