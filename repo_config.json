@@ -35,6 +35,15 @@
           "path": "/home/gelbard/.tmux.conf"
         }
       ]
+    },
+    {
+      "path_in_repo": "coc-settings.json",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/coc-settings.json"
+        }
+      ]
     }
   ]
 }

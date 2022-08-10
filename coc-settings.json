@@ -1,0 +1,12 @@
+{
+	"codeLens.enable": true,
+	"rust-analyzer.checkOnSave.command": "clippy",
+	"rust-analyzer.debug.runtime": "vimspector",
+	"rust-analyzer.debug.vimspector.configuration.name": "rust - lldb",
+	"rust-analyzer.terminal.startinsert": false,
+	"rust-analyzer.inlayHints.typeHintsSeparator": "‣ ",
+	"rust-analyzer.inlayHints.chainingHintsSeparator": "‣ ",
+	"rust-analyzer.completion.postfix.enable": true,
+	"rust-analyzer.checkOnSave.enable": true,
+	"rust-analyzer.lens.enable": true
+}
