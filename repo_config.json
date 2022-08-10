@@ -17,6 +17,24 @@
           "path": "/home/gelbard/my_configs/repo_config.json"
         }
       ]
+    },
+    {
+      "path_in_repo": "init.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/init.vim"
+        }
+      ]
+    },
+    {
+      "path_in_repo": "tmux.conf",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.tmux.conf"
+        }
+      ]
     }
   ]
 }
