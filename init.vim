@@ -1,5 +1,6 @@
 " Required when connecting over SSH
 syntax on
+let mapleader = " " " map leader to Space"
 
 " Set gui colors if supported
 if has('termguicolors')
@@ -77,6 +78,11 @@ Plug 'rhysd/vim-clang-format' " Clang formatter
 
 Plug 'xolox/vim-notes' " Notes
 Plug 'frazrepo/vim-rainbow' "Color matching brackets
+Plug 'justinmk/vim-sneak'
+Plug 'jiangmiao/auto-pairs'
+" BufferLine
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*'  }
 
 " Initialize plugin system
 " (All of your Plugins must be added before the following line)
@@ -258,10 +264,6 @@ let $FZF_DEFAULT_OPTS="--bind \"ctrl-n:preview-down,ctrl-p:preview-up\""
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>T :Tags<Space><C-R><C-W><CR>
 
-" Fuzzy search tags in current buffer
-nnoremap <leader>b :BTags<CR>
-nnoremap <leader>B :BTags<Space><C-R><C-W><CR>
-
 " :Commits, :BCommits, :Lines, :BLines
 nnoremap <leader>v :Commits<CR>
 nnoremap <leader>c :BCommits<CR>
@@ -314,7 +316,7 @@ let g:taboo_renamed_tab_format = ' %N %l%m %d '
 let g:taboo_unnamed_tab_label = '[No Name]'
 
 " vim-airline tab-line configuration
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tab_nr = 0
@@ -513,8 +515,8 @@ let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
 
 "Give 's' same functionallity as in in vim
-nmap s xi
-vmap s xi
+"nmap s xi
+"vmap s xi
 
 "Set marker plug
 nmap ,m <Plug>MarkToggle
@@ -546,3 +548,22 @@ let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_bin_path = expand("~/dev/go/bin")
 nmap <silent><nowait> ,ra <Plug>(coc-codelens-action)
+
+"BufferLine
+lua << EOF
+require("bufferline").setup{}
+EOF
+nnoremap <silent><leader>b :BufferLineCycleNext<CR>
+nnoremap <silent><leader>p :BufferLineCyclePrev<CR>
+nnoremap <silent>be :BufferLineSortByExtension<CR>
+nnoremap <silent>bd :BufferLineSortByDirectory<CR>"
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent><leader>$ <Cmd>BufferLineGoToBuffer -1<CR>
