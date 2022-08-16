@@ -1,6 +1,9 @@
+lua require('my_plugins')
 " Required when connecting over SSH
 syntax on
 let mapleader = " " " map leader to Space"
+
+let g:coc_global_extensions = ['coc-clangd', 'coc-pyright', 'coc-go', 'coc-rust-analyzer']
 
 " Set gui colors if supported
 if has('termguicolors')
@@ -20,74 +23,6 @@ endif
 noremap <M-v> "+p
 " noremap <M-v> :read !pbpaste<CR>
 
-" Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
-" Library plugins:
-Plug 'xolox/vim-misc'
-
-" Fuzzy search plugins:
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-" Note: Scroll fzf preview with mouse or shift-up/down
-" (Also bind other keys to preview-up/preview-down action)
-
-" Code-navigation plugins:
-Plug 'ludovicchabant/vim-gutentags'	" Automatically manage and update ctags
-Plug 'preservim/nerdtree'		" Display files and directories in tree pane
-Plug 'ryanoasis/vim-devicons'		" Add icons to nerdtree files and directories
-
-" Git plugins:
-Plug 'tpope/vim-fugitive'		" git-ls, git log, git blame from inside vim
-Plug 'jreybert/vimagit' 		" Git workflow from inside vim
-Plug 'airblade/vim-gitgutter'		" Git highlights
-
-" Text-editing plugins:
-Plug 'tpope/vim-commentary'		" Comment stuff by marking and then pressing gc
-Plug 'haya14busa/incsearch.vim' 	" Highlight search match when typing search term
-Plug 'junegunn/vim-easy-align'		" Easily align selected text by delimiter
-Plug 'tpope/vim-sleuth' 		" Automatically detect indentation of files
-
-" Programming-languages plugins:
-Plug 'rust-lang/rust.vim'				" Rust
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }	" Go
-Plug 'puremourning/vimspector'" Multi-language integrated debugger
-
-" LSPs (Language Server Protocols) support + auto-completion capabilities
-Plug 'neoclide/coc.nvim', {'branch': 'release'}	" LSP manager (Install / Update / UnInstall) + auto-completion
-" Automatically install following coc extensions
- let g:coc_global_extensions = ['coc-clangd', 'coc-pyright', 'coc-go', 'coc-rust-analyzer']
-
-" Clipboard over ssh
-Plug 'ojroques/vim-oscyank', {'branch': 'main'}
-
-" UI/UX plugins:
-Plug 'christoomey/vim-tmux-navigator'	" Navigate between vim splits and tmux panes transparently
-					" (Without caring which is vim split and which is tmux pane)
-Plug 'vim-airline/vim-airline'		" Advanced vim status-line & tabs-line
-Plug 'wincent/terminus' 		" Change vim cursor shape on insert-mode
-Plug 'octol/vim-cpp-enhanced-highlight' " Enhanced C++ syntax highlighting
-Plug 'bfrg/vim-cpp-modern'		" Modern C++ syntax highlighting
-Plug 'blueyed/vim-diminactive'		" Dim inactive windows
-Plug 'masukomi/vim-markdown-folding'	" Automatically add foldings to Markdown files
-Plug 'inkarkat/vim-ingo-library'	" Prerequisite of the mark plugin
-Plug 'machakann/vim-highlightedyank'
-Plug 'chriskempson/base16-vim'
-
-Plug 'inkarkat/vim-mark' " Mark vim words
-Plug 'rhysd/vim-clang-format' " Clang formatter
-
-Plug 'xolox/vim-notes' " Notes
-Plug 'frazrepo/vim-rainbow' "Color matching brackets
-Plug 'justinmk/vim-sneak'
-Plug 'jiangmiao/auto-pairs'
-" BufferLine
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*'  }
-
-" Initialize plugin system
-" (All of your Plugins must be added before the following line)
-call plug#end()
-
 " More esc
 imap jj <Esc>
 nmap gb :Git blame<CR>
@@ -103,8 +38,11 @@ set listchars=precedes:«,extends:»,tab:▸~,space:·
 set list
 
 " Use Tab for auto-completion navigation
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <TAB>
+	\ coc#pum#visible() ? coc#pum#next(1):
+	\ CheckBackspace() ? "\<Tab>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Use <CR> to accept auto-completion suggestion
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"

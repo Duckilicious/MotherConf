@@ -44,6 +44,15 @@
           "path": "/home/gelbard/.config/nvim/coc-settings.json"
         }
       ]
+    },
+    {
+      "path_in_repo": "lua/my_plugins.lua",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/lua/my_plugins.lua"
+        }
+      ]
     }
   ]
 }
