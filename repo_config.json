@@ -53,6 +53,69 @@
           "path": "/home/gelbard/.config/nvim/lua/my_plugins.lua"
         }
       ]
+    },
+    {
+      "path_in_repo": "nvim_config/airline.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/airline.vim"
+        }
+      ]
+    },
+    {
+      "path_in_repo": "nvim_config/envs.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/envs.vim"
+        }
+      ]
+    },
+    {
+      "path_in_repo": "nvim_config/autocmds.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/autocmds.vim"
+        }
+      ]
+    },
+    {
+      "path_in_repo": "nvim_config/fzf.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/fzf.vim"
+        }
+      ]
+    },
+    {
+      "path_in_repo": "nvim_config/colors.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/colors.vim"
+        }
+      ]
+    },
+    {
+      "path_in_repo": "nvim_config/keybinds.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/keybinds.vim"
+        }
+      ]
+    },
+    {
+      "path_in_repo": "nvim_config/reminder.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/reminder.vim"
+        }
+      ]
     }
   ]
 }

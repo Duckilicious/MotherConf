@@ -1,0 +1,34 @@
+" Highlight current symbol references after 'updatetime' have passed
+" without cursor moving
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Define colors for LSP analysis
+autocmd VimEnter * highlight CocErrorHighlight cterm=underline ctermfg=red gui=underline guifg=#F44747
+autocmd VimEnter * highlight CocErrorSign ctermfg=red guifg=#F44747
+autocmd VimEnter * highlight CocWarningHighlight cterm=underline ctermfg=yellow gui=underline guifg=#f2f266
+autocmd VimEnter * highlight CocWarningSign ctermfg=yellow guifg=#f2f266
+autocmd VimEnter * highlight CocHighlightText cterm=None ctermbg=black gui=None guibg=#3e3e3e
+" Define color for C/C++ Type
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc highlight Type cterm=none ctermfg=43 guifg=#4EC9B0
+" Define colors for LSP semantic highlighting
+autocmd VimEnter * highlight link CocSem_class CocSem_type
+" Utility to to jump with LSP and push current position to tagstack
+
+" Automatically fold sections in figutive git diffs
+autocmd FileType git setlocal foldmethod=syntax
+
+autocmd BufReadPost *.c,*.h,*.cpp,*.hh,*.cc,*.py :Sleuth
+
+" Show characters exceeding column 130
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js let w:m2=matchadd('ErrorMsg', '\%>130v.\+', -1)
+
+" Highlight extra whitespace at the end of lines
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\+$/
+
+" Set syntax highlighting for non-standard extensions
+autocmd BufNewFile,BufRead *.nasm set syntax=nasm
+autocmd BufNewFile,BufRead *.S set syntax=gas
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc setlocal cc=130
+
