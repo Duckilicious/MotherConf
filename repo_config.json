@@ -116,6 +116,15 @@
           "path": "/home/gelbard/.config/nvim/configs/reminder.vim"
         }
       ]
+    },
+    {
+      "path_in_repo": "nvim_config/lsp.vim",
+      "platforms": [
+        {
+          "name": "Ubuntu",
+          "path": "/home/gelbard/.config/nvim/configs/lsp.vim"
+        }
+      ]
     }
   ]
 }
