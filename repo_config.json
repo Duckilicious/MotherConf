@@ -180,6 +180,10 @@
         {
           "name": "Ubuntu",
           "path": "/home/gelbard/.config/nvim/configs/lsp.vim"
+        },
+        {
+          "name": "AL2",
+          "path": "/home/talg/.config/nvim/configs/lsp.vim"
         }
       ]
     }
