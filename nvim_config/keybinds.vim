@@ -19,6 +19,8 @@ noremap zo <c-w>=
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 
+vnoremap <leader>c :OSCYank<CR>
+nmap <leader>y <Plug>OSCYank
 
 " Bufferline
 nnoremap <silent><leader>b :BufferLineCycleNext<CR>
@@ -62,7 +64,7 @@ nnoremap <leader>T :Tags<Space><C-R><C-W><CR>
 
 " :Commits, :BCommits, :Lines, :BLines
 nnoremap <leader>v :Commits<CR>
-nnoremap <leader>c :BCommits<CR>
+"nnoremap <leader>c :BCommits<CR>
 
 
 " Tmux navigator bindings
@@ -116,8 +118,9 @@ nmap db 	<Plug>VimspectorToggleBreakpoint
 "nmap do 	<Plug>VimspectorStepOut
 "nnoremap dq :VimspectorReset<CR>
 
-
 nnoremap z= :call FzfSpell()<CR>
 " Fuzzy text search
 nnoremap <leader>F :call FzfGitGrep(expand('<cword>'))<CR>
 nnoremap <leader>fa :call FzfGitGrep('')<CR>
+" Fuzzy search via Ag
+nnoremap <leader>la :Ag<CR>

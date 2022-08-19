@@ -48,9 +48,9 @@ set ignorecase
 set smartcase
 
 " vim-sneak configuration
-let g:sneak#use_ic_scs = 1 	" Case sensitivty by ignorecase & smartcase settings
-let g:sneak#s_next = 1		" Press s again to move to next match
-let g:sneak#label = 1		" Allows quick jump by labels
+let g:sneak#use_ic_scs = 1  " Case sensitivty by ignorecase & smartcase settings
+let g:sneak#s_next = 1      " Press s again to move to next match
+let g:sneak#label = 1       " Allows quick jump by labels
 
 " Setup vim command auto-completion to show menu with options
 " and not auto-complete with first option
@@ -86,4 +86,4 @@ let g:linuxsty_patterns = [ "/linux/" ]
 
 let g:tmux_navigator_no_mappings = 1
 
-
+set expandtab ts=4 sw=4 ai

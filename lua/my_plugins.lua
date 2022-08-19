@@ -42,10 +42,10 @@ return require('packer').startup(function(use)
 	}
 
 	-- Clipboard over ssh
-	use {
-		'ojroques/vim-oscyank',
-		branch = 'main'
-	}
+    use {
+        'ojroques/vim-oscyank',
+        branch = 'main'
+    }
 
 	-- UI/UX plugins:
 	use 'christoomey/vim-tmux-navigator'	-- Navigate between vim splits and tmux panes transparently

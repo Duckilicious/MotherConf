@@ -1,17 +1,9 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 let g:coc_global_extensions = ['coc-clangd', 'coc-pyright', 'coc-go', 'coc-rust-analyzer']
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use Tab for auto-completion navigation
 inoremap <silent><expr> <TAB>
