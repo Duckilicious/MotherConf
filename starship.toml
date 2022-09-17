@@ -1,0 +1,68 @@
+[aws]
+format ='' 
+symbol = ''
+style = ''
+disabled = false
+expiration_symbol = 'X'
+force_display = false
+
+[package]
+format = ''
+symbol = '<U+1F4E6> '
+style = '208 bold'
+display_private = false
+disabled = false
+version_format = 'v${raw}'
+
+[hostname]
+ssh_only = true
+ssh_symbol = '🌐 '
+trim_at = '.'
+format = '[$ssh_symbol]($style)'
+style = 'green dimmed bold'
+disabled = false
+
+[rust]
+format = ''
+
+[python]
+pyenv_version_name = false
+pyenv_prefix = 'pyenv '
+python_binary = [
+    'python',
+    'python3',
+    'python2',
+]
+format = ''
+version_format = 'v${raw}'
+style = 'yellow bold'
+symbol = '<U+1F40D> '
+disabled = false
+detect_extensions = ['py']
+detect_files = [
+    'requirements.txt',
+    '.python-version',
+    'pyproject.toml',
+    'Pipfile',
+    'tox.ini',
+    'setup.py',
+    '__init__.py',
+]
+detect_folders = []
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false 
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+format = '[$path]($style)[$read_only]($read_only_style) '
+repo_root_format = '[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+style = 'cyan bold'
+disabled = false
+read_only = '🔒'
+read_only_style = 'red'
+truncation_symbol = ''
+home_symbol = '~'
+use_os_path_sep = true
+
+

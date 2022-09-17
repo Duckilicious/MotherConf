@@ -186,6 +186,15 @@
           "path": "/home/talg/.config/nvim/configs/lsp.vim"
         }
       ]
+    },
+    {
+      "path_in_repo": "starship.toml",
+      "platforms": [
+        {
+          "name": "AL2",
+          "path": "/home/talg/.config/starship.toml"
+        }
+      ]
     }
   ]
 }
