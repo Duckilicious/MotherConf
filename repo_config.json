@@ -195,6 +195,15 @@
           "path": "/home/talg/.config/starship.toml"
         }
       ]
+    },
+    {
+      "path_in_repo": "nvim_config/tree_sitter.lua",
+      "platforms": [
+        {
+          "name": "AL2",
+          "path": "/local/home/talg/.config/nvim/lua/tree_sitter.lua"
+        }
+      ]
     }
   ]
 }
