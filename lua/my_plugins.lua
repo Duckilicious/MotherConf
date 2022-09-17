@@ -73,5 +73,13 @@ return require('packer').startup(function(use)
 		'akinsho/bufferline.nvim',
 		tag = 'v2.*'
 	}
+	use 'danilamihailov/beacon.nvim'
+	use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    use 'mfussenegger/nvim-dap'
+    use 'kamykn/spelunker.vim'
 end)
+
 

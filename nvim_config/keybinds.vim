@@ -11,10 +11,6 @@ nmap gb :Git blame<CR>
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
 
-" Zoom in/out of panes
-noremap zz <c-w>_ \| <c-w>\|
-noremap zo <c-w>=
-
 "Set Git Gutter
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
@@ -124,3 +120,4 @@ nnoremap <leader>F :call FzfGitGrep(expand('<cword>'))<CR>
 nnoremap <leader>fa :call FzfGitGrep('')<CR>
 " Fuzzy search via Ag
 nnoremap <leader>la :Ag<CR>
+
