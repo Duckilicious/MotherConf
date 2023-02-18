@@ -204,6 +204,15 @@
           "path": "/local/home/talg/.config/nvim/lua/tree_sitter.lua"
         }
       ]
+    },
+    {
+      "path_in_repo": "lua/bufferline_conf.lua",
+      "platforms": [
+        {
+          "name": "AL2",
+          "path": "/local/home/talg/.config/nvim/lua/bufferline_conf.lua"
+        }
+      ]
     }
   ]
 }
