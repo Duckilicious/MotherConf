@@ -86,4 +86,4 @@ let g:linuxsty_patterns = [ "/linux/" ]
 
 let g:tmux_navigator_no_mappings = 1
 
-set expandtab ts=4 sw=4 ai
+set expandtab ts=8 sw=8 ai

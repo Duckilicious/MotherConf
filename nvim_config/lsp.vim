@@ -61,6 +61,7 @@ nmap ,rn <Plug>(coc-rename)
 nmap ,a <Plug>(coc-codeaction)
 nmap ,f <Plug>(coc-fix-current)
 nmap ,fo <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format)
 
 " Set LSP signs for status-line
 let g:coc_status_error_sign = '✗'
@@ -89,4 +90,4 @@ function! TagstackPush(item)
 	call settagstack(winid, tagstack, 'r')
 	call settagstack(winid, {'curidx' : curidx + 1})
 endfunction
-
+let g:vim_json_warnings=0

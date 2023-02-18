@@ -19,8 +19,8 @@ autocmd FileType git setlocal foldmethod=syntax
 
 autocmd BufReadPost *.c,*.h,*.cpp,*.hh,*.cc,*.py :Sleuth
 
-" Show characters exceeding column 130
-autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js let w:m2=matchadd('ErrorMsg', '\%>130v.\+', -1)
+" Show characters exceeding column 80
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 " Highlight extra whitespace at the end of lines
 autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\+\%#\@<!$/
@@ -30,5 +30,5 @@ autocmd InsertLeave *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\
 " Set syntax highlighting for non-standard extensions
 autocmd BufNewFile,BufRead *.nasm set syntax=nasm
 autocmd BufNewFile,BufRead *.S set syntax=gas
-autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc setlocal cc=130
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc setlocal cc=80
 

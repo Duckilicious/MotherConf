@@ -1,6 +1,7 @@
 lua require('my_plugins')
-lua require("bufferline").setup{}
 lua require('tree_sitter')
+lua require('bufferline_conf')
+
 source ~/.config/nvim/configs/autocmds.vim
 source ~/.config/nvim/configs/keybinds.vim
 source ~/.config/nvim/configs/lsp.vim

@@ -22,7 +22,7 @@ nmap <leader>y <Plug>OSCYank
 nnoremap <silent><leader>b :BufferLineCycleNext<CR>
 nnoremap <silent><leader>p :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>be :BufferLineSortByExtension<CR>
-nnoremap <silent><leader>bd :BufferLineSortByDirectory<CR>"
+"nnoremap <silent><leader>bd :BufferLineSortByDirectory<CR>"
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
@@ -120,4 +120,5 @@ nnoremap <leader>F :call FzfGitGrep(expand('<cword>'))<CR>
 nnoremap <leader>fa :call FzfGitGrep('')<CR>
 " Fuzzy search via Ag
 nnoremap <leader>la :Ag<CR>
-
+" Close all open buffers
+nnoremap <leader>bd :%bd\|e#\|bd#<cr>\|'"

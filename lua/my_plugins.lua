@@ -71,7 +71,7 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 	use {
 		'akinsho/bufferline.nvim',
-		tag = 'v2.*'
+		tag = 'v3.*'
 	}
 	use 'danilamihailov/beacon.nvim'
 	use {
@@ -80,6 +80,8 @@ return require('packer').startup(function(use)
     }
     use 'mfussenegger/nvim-dap'
     use 'kamykn/spelunker.vim'
+    use 'GutenYe/json5.vim'
+    use 'sainnhe/gruvbox-material'
 end)
 
 

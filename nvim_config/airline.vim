@@ -14,6 +14,7 @@ let g:airline_section_y = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#zoomwintab#enabled = 1
 let g:airline#extensions#zoomwintab#status_zoomed_in = 'Zoomed In'
+let g:airline_powerline_fonts = 1
 
 " vim-airline color for inactive status-lines (Horizontal splits)
 let g:airline_inactive_collapse = 1
