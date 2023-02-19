@@ -12,13 +12,13 @@ endif
 " set background=dark
 let base16colorspace=256
 "let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
-colorscheme gruvbox-material
 hi Comment term=bold cterm=NONE ctermfg=245 gui=NONE guifg=#928374
 hi Normal guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 let g:gruvbox_material_foreground = 'original'
-let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_disable_italic_comment = 1
+colorscheme gruvbox-material
 " call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 
 " Set terminal colors to gnome terminal tango palette
