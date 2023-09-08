@@ -17,18 +17,20 @@ autocmd VimEnter * highlight link CocSem_class CocSem_type
 " Automatically fold sections in figutive git diffs
 autocmd FileType git setlocal foldmethod=syntax
 
-autocmd BufReadPost *.c,*.h,*.cpp,*.hh,*.cc,*.py :Sleuth
+autocmd BufReadPost *.c,*.h,*.cpp,*.hh,*.cc,*.py silent! :Sleuth
 
 " Show characters exceeding column 80
-autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+autocmd BufWinEnter *.py,*.js,*.rs let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1)
 
 " Highlight extra whitespace at the end of lines
-autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js,*.rs match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertEnter *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js,*.rs match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave *.c,*.h,*.cpp,*.hh,*.cc,*.py,*.js,*.rs match ExtraWhitespace /\s\+$/
 
 " Set syntax highlighting for non-standard extensions
 autocmd BufNewFile,BufRead *.nasm set syntax=nasm
 autocmd BufNewFile,BufRead *.S set syntax=gas
 autocmd BufWinEnter *.c,*.h,*.cpp,*.hh,*.cc setlocal cc=80
 
+au FileType gitcommit,gitrebase let g:gutentags_enabled=0

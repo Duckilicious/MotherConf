@@ -42,10 +42,10 @@ return require('packer').startup(function(use)
 	}
 
 	-- Clipboard over ssh
-    use {
-        'ojroques/vim-oscyank',
-        branch = 'main'
-    }
+	   use {
+ 		'ojroques/vim-oscyank',
+		branch = 'main'
+	}
 
 	-- UI/UX plugins:
 	use 'christoomey/vim-tmux-navigator'	-- Navigate between vim splits and tmux panes transparently
@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
 	use 'xolox/vim-notes' -- Notes
 	use 'frazrepo/vim-rainbow' -- Color matching brackets
 	use 'justinmk/vim-sneak'
-	use 'jiangmiao/auto-pairs'
+	--use 'jiangmiao/auto-pairs'
 	-- BufferLine
 	use 'kyazdani42/nvim-web-devicons'
 	use {
@@ -82,6 +82,8 @@ return require('packer').startup(function(use)
     use 'kamykn/spelunker.vim'
     use 'GutenYe/json5.vim'
     use 'sainnhe/gruvbox-material'
+    use 'NoahTheDuke/vim-just'
+    use 'tpope/vim-surround'
 end)
 
 

@@ -18,7 +18,7 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 let g:gruvbox_material_foreground = 'original'
 let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_disable_italic_comment = 1
-colorscheme gruvbox-material
+ colorscheme gruvbox-material
 " call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 
 " Set terminal colors to gnome terminal tango palette

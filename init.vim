@@ -9,3 +9,4 @@ source ~/.config/nvim/configs/airline.vim
 source ~/.config/nvim/configs/fzf.vim
 source ~/.config/nvim/configs/colors.vim
 source ~/.config/nvim/configs/envs.vim
+source ~/.config/nvim/configs/spelling.vim

@@ -15,8 +15,8 @@ nnoremap <leader><leader> <c-^>
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 
-vnoremap <leader>c :OSCYank<CR>
-nmap <leader>y <Plug>OSCYank
+vmap <leader>c :OSCYankVisual<CR>
+nmap <leader>y <Plug>OSCYankOperator
 
 " Bufferline
 nnoremap <silent><leader>b :BufferLineCycleNext<CR>
